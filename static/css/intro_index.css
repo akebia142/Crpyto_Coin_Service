@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  padding: 0 1rem;
+}
+h1 {
+  text-align: center;
+  height: 5rem;
+  line-height: 5rem;
+  background: darkgray;
+  color: aliceblue;
+}
