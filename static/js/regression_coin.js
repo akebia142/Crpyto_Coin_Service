@@ -2,11 +2,15 @@ console.log("😃regression_coin running!!!");
 let anal_btn;
 let ele_coin_name;
 let timegap;
+let res_contain;
+let closeBtn;
+let loader;
 async function get_coinname() {
   ele_coin_name = document.getElementById("coinname");
   timegap = document.getElementById("timegap");
   res_contain = document.getElementById("res_contain");
   closeBtn = document.getElementById("closeBtn");
+  loader = document.getElementById("loader");
   const conn = await fetch("/coin_name");
   const coinnames = await conn.json();
   let inHtml = "";
@@ -25,6 +29,10 @@ function addEvent() {
   });
 
   anal_btn.addEventListener("click", async function () {
+    loader.style.display = "block";
+    const style_loader = ` style="position:fixed;top:48vh;left:48vw"`;
+    const loader_html = `<img id="loader_img" ${style_loader}src="/static/img/ajax-loader.gif">`;
+    loader.innerHTML = loader_html;
     const coinname = ele_coin_name.value;
     const timegaps = timegap.value;
     const padding = await fetch("/user_data", {
@@ -44,7 +52,9 @@ function addEvent() {
     let today_date = new Date();
     today_date.setDate(today_date.getDate() + 1);
     let today_str = today_date.toLocaleString();
-    let ghtml = `<p style="font-size:1.5rem;margin-bottom:1rem">최고가오차율(${
+    let ghtml = `<h2 style="display:inline;padding:1rem;">
+    ${coinname} 가격예측정보</h2>
+    <p style="font-size:1.5rem;margin-bottom:1rem">최고가오차율(${
       info_data["err_rate"]["high"] * 100
     })%
     현재가오차율(${info_data["err_rate"]["cur"] * 100})%
@@ -70,6 +80,7 @@ function addEvent() {
       today_date.setDate(today_date.getDate() + 1);
       today_str = today_date.toLocaleString();
     }
+    loader.style.display = "none";
     res_contain.style.display = "block";
   });
 }
