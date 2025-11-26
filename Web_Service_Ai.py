@@ -1,5 +1,4 @@
 import base64
-
 from flask import Flask,render_template,request,json,jsonify
 from ai_service.Crpyto_Coin_Service import input_request
 app = Flask(__name__)
@@ -37,7 +36,5 @@ def user_data():
         }
         print(report)
         return jsonify(result)
-
-
 
 app.run("127.0.0.1",4321,True)
