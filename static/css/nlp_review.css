@@ -1,0 +1,36 @@
+#mycontent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* textarea 중앙 유지 */
+  margin-top: 30px;
+}
+
+#mycontent label {
+  width: 12rem;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#mycontent textarea {
+  width: 80%;
+  max-width: 800px;
+  font-size: 1rem;
+  padding: 10px;
+}
+
+/* 버튼은 따로 왼쪽 정렬 */
+.button-box {
+  width: 80%;
+  max-width: 800px;
+  margin-top: 10px;
+  text-align: left; /* 버튼을 왼쪽으로 */
+}
+
+/* 버튼 크기 기본(작게) */
+.button-box button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+}

@@ -1,6 +1,8 @@
 import base64
 from flask import Flask,render_template,request,json,jsonify
 from ai_service.Crpyto_Coin_Service import input_request
+from movie_review.Naver_NLP_Service import getPredict
+import movie_review.Naver_NLP_Predict
 app = Flask(__name__)
 COIN_NAMES =["BTC","ETH","XRP"]
 COIN_HAN =["비트코인","이더리움","리플"]
@@ -8,6 +10,7 @@ AI_PATH= "ai_service/"
 def crypto_coin_anal(coinname,timegaps):
     res= input_request(coinname,timegaps)
     return res
+
 
 @app.route("/") #메인 인트로 페이지
 def root():
@@ -36,5 +39,13 @@ def user_data():
         }
         print(report)
         return jsonify(result)
+
+@app.route("/nlp_review")
+def ret_mainpage():
+    return render_template("nlp_review.html")
+
+@app.route("/movie_review")
+def movie_review():
+    pass
 
 app.run("127.0.0.1",4321,True)

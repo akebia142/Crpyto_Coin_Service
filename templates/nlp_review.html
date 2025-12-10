@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/intro_index.css" />
+    <link rel="stylesheet" href="../static/css/nlp_review.css" />
+    <link rel="icon" href="/static/favicon.ico" />
+    <script src="{{url_for('static',filename='js/nlp_review.js')}}"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <title>Document</title>
+  </head>
+
+  <body id="bg" onload="startpage()">
+    <h1>
+      ╰(*°▽°*)╯(●'◡'●)인공지능솔루션 적대적공격 위협분석 AI보안전문가 2회차
+    </h1>
+    <div id="main_intro" class="content">
+      <h2
+        style="
+          margin-bottom: 3rem;
+          text-align: center;
+          margin: 1rem 0;
+          padding: 1rem 0;
+          color: coral;
+        "
+      >
+        자연어 처리를 위한 실전모델 구현 (영화 리뷰)
+      </h2>
+      <div id="mycontent">
+        <label>리뷰문장입력 </label>
+        <textarea
+          id="user_text"
+          cols="100"
+          rows="5"
+          placeholder="리뷰문장을 입력하세요 10글자 이상으로 입력해주세요"
+        >
+        </textarea>
+
+        <button id="commitbtn">예측하기</button>
+        <button id="resetbtn">리셋</button>
+      </div>
+      <div
+        id="res_contain"
+        style="
+          width: 99vw;
+          height: calc(99vh - 8rem);
+          background: whitesmoke;
+          display: none;
+          position: fixed;
+          overflow-y: auto;
+        "
+      >
+        <span
+          style="
+            position: absolute;
+            right: 0.5rem;
+            top: 0.5rem;
+            font-size: 2rem;
+          "
+          id="closeBtn"
+          class="material-symbols-outlined"
+          >cancel
+        </span>
+        <div id="anal_data"></div>
+        <div id="result" style="overflow-y: auto"></div>
+      </div>
+    </div>
+    <div
+      id="loader"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 99vh;
+        text-align: center;
+        background: yellow;
+        opacity: 0.5;
+      "
+    ></div>
+  </body>
+</html>
